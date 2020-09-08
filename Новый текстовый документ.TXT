@@ -1,0 +1,10 @@
+
+    src/index.html - main app HTML
+    src/assets/scss - поместите пользовательские стили приложения SCSS здесь. Не забудьте импортировать их в index.js
+    src/assets/css - так же, как и выше, но CSS здесь. Не забудьте импортировать их в index.js
+    src/assets/img - put images here. Don't forget to use correct path: assets/img/some.jpg
+    src/js - поместите скрипты пользовательских приложений здесь
+    src/index.js - main app afqks где вы include/import все необходимые библиотеки и приложени init app
+    src/components - folder with custom .vue components
+    src/store - app store for vue
+    static/ - папка с дополнительными статическими ресурсами, которые будут скопированы в выходную папку
