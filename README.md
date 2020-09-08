@@ -1,32 +1,10 @@
 <div align="center">
-  <img width="200" height="200" src="https://webpack.js.org/assets/icon-square-big.svg">
   <h1>Webpack Template</h1>
   <p>
-    Webpack is a module bundler. Its main purpose is to bundle JavaScript files for usage in a browser, yet it is also capable of transforming, bundling, or packaging just about any resource or asset.
+  rasing .
   </p>
-  <p>Author: <a href="https://tocode.ru" target="_blank">To code</a> | <a href="https://www.youtube.com/playlist?list=PLkCrmfIT6LBQWN02hNj6r1daz7965GxsV" target="_blank">Youtube guide in Russian</a></p>
+  <p>создано на основе шаблона</p>
 </div>
-
-
-## Build Setup:
-
-``` bash
-# Download repository:
-git clone https://github.com/vedees/webpack-template webpack-template
-
-# Go to the app:
-cd webpack-template
-
-# Install dependencies:
-npm install
-
-# Server with hot reload at http://localhost:8081/
-npm run dev
-
-# Output will be at dist/ folder
-npm run build
-```
-
 ## Project Structure:
 
 * `src/index.html` - main app HTML
@@ -134,123 +112,6 @@ Example:
 ``` bash
 ./src/pages/index.html
 ./src/pages/about.html
-```
-
-## Create Another HTML Files:
-#### Default: 
-Automatic creation any html pages:
-1. Create another html file in `./src` (main folder)
-2. Open new page `http://localhost:8081/about.html` (Don't forget to RERUN dev server)
-See more - [commit](https://github.com/vedees/webpack-template/commit/249e3ae3b4973a7300f271045178f9f5f431bb89)
-
-#### Second method:
-Manual (not Automaticlly) creation any html pages (Don't forget to RERUN dev server and COMMENT lines above)
-1. Create another html file in `./src` (main folder)
-2. Go to `./build/webpack.base.conf.js`
-3. Comment lines above (create automaticlly html pages)
-4. Create new page in html:
-``` js
-    new HtmlWebpackPlugin({
-      template: `${PAGES_DIR}/index.html`,
-      filename: './index.html',
-      inject: true
-    }),
-    new HtmlWebpackPlugin({
-      template: `${PAGES_DIR}/another.html`,
-      filename: './another.html',
-      inject: true
-    }),
-```
-5. Open new page `http://localhost:8081/about.html` (Don't forget to RERUN dev server)
-
-#### Third method: (BEST)
-Сombine the first method and the second.
-Example:
-``` js
-    ...PAGES.map(page => new HtmlWebpackPlugin({
-      template: `${PAGES_DIR}/${page}`,
-      filename: `./${page}`
-    })),
-    new HtmlWebpackPlugin({
-      template: `${PAGES_DIR}/about/index.html`,
-      filename: './about/index.html',
-      inject: true
-    }),
-    new HtmlWebpackPlugin({
-      template: `${PAGES_DIR}/about/portfolio.html`,
-      filename: './about/portfolio.html',
-      inject: true
-    }),
-```
-
-
-## Vue install:
-Default: **already have**
-
-1. Install vue
-``` bash
-npm install vue --save
-```
-2. Init vue `index.js`:
-``` js
-const app = new Vue({
-  el: '#app'
-})
-```
-3. Create div id app
-``` html
-<div id="app">
-  <!-- content -->
-</div>
-```
-
-## Vuex install:
-1. Install vuex
-``` bash
-npm install vuex --save
-```
-2. Import Vuex
-``` js
-import store from './store'
-```
-3. Create index.js in `./store`
-``` js
-import Vue from 'vue'
-import Vuex from 'vuex'
-Vue.use(Vuex)
-
-export default new Vuex.Store({
-  // vuex content
-})
-```
-
-## Add Vue Components:
-Create your component in `/components/`
-
-**HTML Usage:**
-1. Init component in `index.js`:
-``` js
-Vue.component('example-component', require('./components/Example.vue').default)
-```
-2. Any html files:
-``` html
- <example-component />
-```
-
-**VUE Usage:**
-1. import components in .vue:
-``` js
-import example from '~/components/Example.vue'
-```
-2. Register component:
-``` js
-  components: {
-    example
-  }
-```
-3. Init in vue component:
-``` html
-<example />
 ```
 
 ## Add Fonts:
