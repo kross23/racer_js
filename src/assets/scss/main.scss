@@ -101,6 +101,13 @@ section,
     max-width: $smPhoneWidth;
   }
 }
-
+.hide{
+  display: none;
+}
+.car{
+  width: 50px;
+  height: 100px;
+  background:transparent url('../img/player.png')center / cover no-repeat;
+}
 // Modules:
 // example: @import "modules/my-module.scss";
