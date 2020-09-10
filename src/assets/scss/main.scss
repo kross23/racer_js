@@ -105,7 +105,19 @@ html {
   display: none;
 }
 .start{
-  border: black;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  margin: 0;
+  padding: 2rem 0;
+  text-align: center;
+  z-index: 200;
+  color:#fff;
+  font-size: 1.5rem;
+  background:#black;
+  font-family: sans-serif;
+  font-weight: 700;
 }
 .gameArea{
 width: 300px;
@@ -129,6 +141,14 @@ overflow: hidden;
   background:#fff;
   left: 145px;
 }
+.score{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  text-align: center;
+}
+
 }
 // Modules:
 // example: @import "modules/my-module.scss";

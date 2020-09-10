@@ -15,15 +15,12 @@ const keys = {
 const setting = {
 	start: false,
 	score: 0,
-	speed: 3,
+	speed: 4,
 	traffic: 2
-
 };
 const getQantyElements = heigthElement => {
 	return document.documentElement.clientHeight / heigthElement + 1;
 };
-
-
 const moveRoad = () => {
 	// eslint-disable-next-line prefer-const
 	let lines = document.querySelectorAll('.line');
@@ -34,12 +31,20 @@ const moveRoad = () => {
 			line.y = -100;
 		}
 	});
-
 };
 const moveEnemy = () => {
 	// eslint-disable-next-line prefer-const
 	let enemys = document.querySelectorAll('.enemy');
 	enemys.forEach(item => {
+		// eslint-disable-next-line prefer-const
+		let carRect = car.getBoundingClientRect();
+		// eslint-disable-next-line prefer-const
+		let enemyRect = item.getBoundingClientRect();
+		if (carRect.top < enemyRect.bottom && carRect.right > enemyRect.left &&
+			carRect.left < enemyRect.right && carRect.bottom > enemyRect.top) {
+			console.warn('дтп');
+			setting.start = false;
+		}
 		item.y += setting.speed / 2;
 		item.style.top = item.y + 'px';
 		if (item.y > document.documentElement.clientHeight) {
@@ -49,7 +54,9 @@ const moveEnemy = () => {
 	});
 };
 const playGame = () => {
-	console.log('play');
+	setting.score += setting.speed;
+	score.textContent = 'score: ' + setting.score;
+	console.log(setting.score);
 	if (setting.start) {
 		moveRoad();
 		moveEnemy();
@@ -70,12 +77,9 @@ const playGame = () => {
 
 		requestAnimationFrame(playGame);
 	}
-
 };
-
 const startGame = () => {
 	start.classList.add('hide');
-
 	for (let i = 0; i < getQantyElements(100); i++) {
 		const line = document.createElement('div');
 		line.classList.add('line');
@@ -107,7 +111,6 @@ const startGame = () => {
 const startRun = event => {
 	event.preventDefault();
 	keys[event.key] = true;
-	console.log('event.key: ', event.key);
 };
 const stopRun = () => {
 	event.preventDefault();
